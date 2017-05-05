@@ -30,3 +30,7 @@ string funcionario::getdata(){
 void funcionario::setdata(string d){
 	data = d;
 }
+ostream& operator<<(ostream& os, funcionario f) {
+	os <<  f.nome << " " << f.salario << " " << f.data;
+    return os;
+}

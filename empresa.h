@@ -1,6 +1,7 @@
 #ifndef EMPRESA_H
 #define EMPRESA_H
 
+#include <iostream>
 #include <string>
 
 #include "funcionario.h"
@@ -26,7 +27,7 @@ class empresa {
 		void	setcnpj(int c);
 		funcionario* getfuncionario();
 		void addfuncionario(funcionario f);
-		void aumento(float percentual);
+		void aumento(float a);
 
 };
 

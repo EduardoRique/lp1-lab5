@@ -38,7 +38,7 @@ void empresa::addfuncionario(funcionario f){
 	tamanho++;
     }
 }
-void empresa::aumento(float percentual) {
+void empresa::aumento(float a) {
     for(int i = 0; i < tamanho; i++)
-        funcionarios[i].setsalario(funcionarios[i].getsalario() * (1 + (percentual/100)));
+        funcionarios[i].setsalario(funcionarios[i].getsalario() * (1 + (a/100)));
 }

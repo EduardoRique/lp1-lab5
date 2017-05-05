@@ -1,6 +1,7 @@
 #ifndef FUNCIONARIO_H
 #define FUNCIONARIO_H
 
+#include <iostream>
 #include <string>
 using namespace std;
     
@@ -19,6 +20,7 @@ class funcionario {
         void setsalario(float s);
         string getdata();
         void setdata(string d);
+        friend ostream& operator<<(ostream& os, funcionario f);
     };
 
 #endif
