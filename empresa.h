@@ -1,30 +1,32 @@
 #ifndef EMPRESA_H
 #define EMPRESA_H
 
-#include <ctime>
 #include <string>
-
-using std::string;
 
 #include "funcionario.h"
 
-#define Nmax = 5;
+using namespace std;
+
+#define Nmax 5
 
 class empresa {
 	private:
 		string nome;
-		int CNPJ;
-		funcionario listaFuncionarios[Nmax];
+		int cnpj;
+		funcionario *funcionarios;
+		int tamanhoMax;
+		int tamanho;
 	public:
 		empresa();
-		empresa(string n, float c, funcionario f);
+		empresa(string n, int c);
 
 		string	getnome();
 		void	setnome(string n);
-		float	getcnpj();
-		void	setcnpj(float c);
+		int	getcnpj();
+		void	setcnpj(int c);
 		funcionario* getfuncionario();
-		void addfuncionario(funcionario *f, int &N);
+		void addfuncionario(funcionario f);
+		void aumento(float percentual);
 
 };
 
