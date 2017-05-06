@@ -1,70 +1,100 @@
 #include <iostream>
 #include <string>
+#include <fstream>
+
 
 #include "funcionario.h"
 #include "empresa.h"
+#include "menu.h"
+#include "funcoes.h"
 
 using namespace std;
 
-int main(void) {
+int main(int argc, char* argv[]) {
 
-    int opcao; /**< Opcao que sera passada pelo usuario */
-    
-    do{ 
-        cout << endl;
-        cout << "=========================================" << endl;
-        cout << "Cadastro de empresas e funcionarios" << endl;
-        cout << "=========================================" << endl;
-        cout << "(1) Adicionar empresa" << endl;
-        cout << "(2) Adicionar funcionario" << endl;
-        cout << "(3) Listar funcionarios" << endl;
-        cout << "(4) Listar funcionarios em experiencia" << endl;
-        cout << "(5) Dar um aumento" << endl;
-        cout << "(0) Sair" << endl;
+    ifstream entrada(argv[1]); 
+    if(!entrada){
+        cout << "O arquivo de entrada nao foi encontrado!" << endl;
+        return 0;
+}
 
-        cout << endl;
-        cout << "Digite a sua opcao: ";
-        cin >> opcao;
+    string str; /**< String para a leitura do arquivo */
+    getline(entrada, str);
+    int t = stoi(str); /**< Quantidade de funcionario da empresa */
 
-        cout << endl;
-        
-        if(opcao<0 || opcao>5) cout << endl << endl << "=======================" << endl << "Digite uma opcao valida" << endl << "=======================" << endl << endl;
+    empresa emp(t); /**< Empresa */
+    funcionario *f = new funcionario[t+10]; /**< ALocando o vetor de funcionarios da empresa */
 
-    }while(opcao != 0 && (opcao<0 || opcao>5));
+    int aux; /**< Auxiliar para a leitura do salario */
+    float a; /**< porcetagem do aumento */
+    int cont=0;
+    int ce=0; /**< controle de empresas */
+    while(1){
+        switch(menu()){
+            case 0:
+            entrada.close();
+            delete[] f;
+            return 0;
+            
+            case 1:
+                if(ce > 0){
+                    cout << "Empresa já criada" << endl;
+                    cout << "Nome e CNPJ da empresa: " << emp << endl;
+                    break;
+                }
+                emp = AddEmpresa(t);
+                ce++;
+                break;
+            
+            case 2:
+                if(cont < 1){
+                    cout << "Adicione primeiro os funcionarios do arquivo" << endl;
+                    break;
+                }
+                f[cont] = AddFuncionario();
+                emp.addfuncionario(f[cont]);
+                cont++;
+                t++;
+                break;
+            case 3:
 
-    switch(opcao){
-        case 1:
-            break;
-        case 2:
-            break;
-        case 3:
-            break;
-        case 4:
-            break;
-        case 5:
-            break;
-        //default:
-            //cout << "Programa finalizado" << endl;
+                f = emp.getfuncionario();
+
+                for(int ii=0; ii<t; ii++){
+                    cout << f[ii] << endl;
+                }
+                
+                break;
+            case 4:
+                break;
+            case 5:
+                cout << "Digite o valor do aumento desejado em porcentagem: ";
+                cin >> a;
+                emp = DarAumento(emp, a);
+                break;
+            case 6:
+                while(cont < t){
+                    
+                    getline(entrada, str, ' ');
+                    f[cont].setnome(str);
+                    
+                    getline(entrada, str, ' ');
+                    aux = stoi(str);
+                    f[cont].setsalario(aux);
+                    
+                    getline(entrada, str);
+                    f[cont].setdata(str);
+
+                    emp.addfuncionario(f[cont]);
+
+                    cont++;
+                }
+        }
+
     }
+    entrada.close();
 
-    
-
-    empresa emp("Lp1 Corp.", 1234567890);
-    funcionario f1("Funcionario1", 1000.43, "04/05/2017");
-    funcionario f2("Funcionario2", 2000.43, "05/05/2017");
-    emp.addfuncionario(f1);
-    emp.addfuncionario(f2);
-
-    emp.aumento(100);
-
-    funcionario *f = emp.getfuncionario();
-
-    for(int ii=0; ii<2; ii++){
-       cout << f[ii] << endl; 
-    }
-
-    
-
+    delete[] f;
 
     return 0;
 }

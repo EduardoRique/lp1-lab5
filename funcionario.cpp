@@ -34,3 +34,7 @@ ostream& operator<<(ostream& os, funcionario f) {
 	os <<  f.nome << " " << f.salario << " " << f.data;
     return os;
 }
+istream& operator>>(istream& is, funcionario &f) {
+    is >> f.nome >> f.salario >> f.data;
+    return is;
+}

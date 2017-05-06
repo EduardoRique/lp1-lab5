@@ -21,6 +21,7 @@ class funcionario {
         string getdata();
         void setdata(string d);
         friend ostream& operator<<(ostream& os, funcionario f);
+        friend istream& operator>>(istream& is, funcionario &f);
     };
 
 #endif

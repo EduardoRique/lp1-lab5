@@ -8,26 +8,27 @@
 
 using namespace std;
 
-#define Nmax 5
-
 class empresa {
 	private:
 		string nome;
-		int cnpj;
+		string cnpj;
 		funcionario *funcionarios;
 		int tamanhoMax;
 		int tamanho;
 	public:
-		empresa();
-		empresa(string n, int c);
+		empresa(int t);
+		empresa(string n, string c, int t);
 
 		string	getnome();
 		void	setnome(string n);
-		int	getcnpj();
-		void	setcnpj(int c);
+		string getcnpj();
+		void	setcnpj(string c);
 		funcionario* getfuncionario();
 		void addfuncionario(funcionario f);
+		void settamanho(int t);
 		void aumento(float a);
+		friend ostream& operator<<(ostream& os, empresa e);
+        friend istream& operator>>(istream& is, empresa &e);
 
 };
 
