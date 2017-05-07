@@ -12,9 +12,7 @@ empresa AddEmpresa(int t);
 
 funcionario AddFuncionario();
 
-//ListarFuncionarios();
-
-//ListarFuncionariosExp();
+void ListarFuncionariosExp(funcionario* f, int t);
 
 empresa DarAumento(empresa e, float a);
 

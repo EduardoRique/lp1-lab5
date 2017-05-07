@@ -1,3 +1,11 @@
+/**
+* @file 	menu.cpp
+* @brief	Arquivo de corpo com a definição de funções para o menu
+*@author Luís Eduardo Rique (luiseduardorique@gmail.com)
+*@since 03/05/2017
+*@date  07/05/2017
+*/
+
 #include "menu.h"
 
 int menu(){

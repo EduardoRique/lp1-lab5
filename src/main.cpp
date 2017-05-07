@@ -1,3 +1,12 @@
+/** 
+*@file main.cpp
+*@brief Programa que permite criar uma empresa e cadastrar funcionarios
+*@author Luís Eduardo Rique (luiseduardorique@gmail.com)
+*@since 03/05/2017
+*@date  07/05/2017
+*/
+
+
 #include <iostream>
 #include <string>
 #include <fstream>
@@ -66,6 +75,11 @@ int main(int argc, char* argv[]) {
                 
                 break;
             case 4:
+                
+                f = emp.getfuncionario();
+
+                ListarFuncionariosExp(f, t);
+
                 break;
             case 5:
                 cout << "Digite o valor do aumento desejado em porcentagem: ";
@@ -73,8 +87,14 @@ int main(int argc, char* argv[]) {
                 emp = DarAumento(emp, a);
                 break;
             case 6:
+                if(ce == 0){
+                    cout << "Primerio crie uma empresa" << endl;
+                    break;
+                }
+                
                 while(cont < t){
                     
+
                     getline(entrada, str, ' ');
                     f[cont].setnome(str);
                     
@@ -89,6 +109,7 @@ int main(int argc, char* argv[]) {
 
                     cont++;
                 }
+            break;
         }
 
     }
