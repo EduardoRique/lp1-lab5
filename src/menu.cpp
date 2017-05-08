@@ -8,9 +8,12 @@
 
 #include "menu.h"
 
+/**
+* @brief    Função que imprime o menu
+*/
 int menu(){
     
-    int opcao;
+    int opcao; /**< Opcao que sera passada pelo usuario */
     do{ 
         cout << endl;
         cout << "=========================================" << endl;

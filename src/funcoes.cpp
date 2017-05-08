@@ -1,9 +1,9 @@
 /**
 * @file 	funcoes.cpp
 * @brief	Arquivo de corpo com a definição das funções do programa
-* @author   Dionísio Carvalho (dionisio@naracosta.com.br)
-* @since    29/04/2017
-* @date     07/05/2017
+*@author Luís Eduardo Rique (luiseduardorique@gmail.com)
+*@since 03/05/2017
+*@date  07/05/2017
 */
 
 #include "funcoes.h"
@@ -55,23 +55,26 @@ funcionario AddFuncionario(){
 * @param    f lista de funcionarios
 * @param    t quantidade de funcionarios na empresa
 */
-void ListarFuncionariosExp(funcionario* f, int t){
+/**void ListarFuncionariosExp(funcionario* f, int t){
 
-    cout << "Digite o dia de hoje no formato dd/mm/aaaa: "
+    cout << "Digite o dia de hoje no formato dd/mm/aaaa: ";
     string hoje;
-    cin > hoje;
+    cin >> hoje;
     string aux;
     int dia;
     int mes;
     int ano;
+    
+    getline(f[1].getdata(), aux, '/');
+    dia = stoi(aux);
 
-    for(int ii=0; ii<3; ii++){    
-        getline(f.getdata(), aux, '/');
-        int dia = stoi(aux);
-        cout << dia << endl;
-    }
+    getline(f[1].getdata(), aux, '/');
+    mes = stoi(aux);
 
-}
+    getline(f[1].getdata(), aux);
+    ano = stoi(aux);
+    
+}*/
 
 /**
 * @brief    Função que da um aumento aos funcionarios da empresa

@@ -19,6 +19,9 @@
 
 using namespace std;
 
+/**
+* @brief    Função principal
+*/
 int main(int argc, char* argv[]) {
 
     ifstream entrada(argv[1]); 
@@ -76,9 +79,9 @@ int main(int argc, char* argv[]) {
                 break;
             case 4:
                 
-                f = emp.getfuncionario();
+                //f = emp.getfuncionario();
 
-                ListarFuncionariosExp(f, t);
+                //ListarFuncionariosExp(f, t);
 
                 break;
             case 5:
